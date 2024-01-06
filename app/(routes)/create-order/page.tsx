@@ -6,11 +6,12 @@ export default function OrderPage({
 }: {
   searchParams: { Url: string; label: string; CreatorId: string; Private: string };
 }) {
+  const imageUrl = `/api/image?url=${encodeURIComponent(searchParams.Url)}`;
   return (
     <main className="flex flex-col">
       <Navbar />
       <Order
-        image={searchParams.Url}
+        image={imageUrl}
         name={searchParams.label}
         CreaterId={searchParams.CreatorId}
           Private={searchParams.Private}   
