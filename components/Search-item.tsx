@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 
 interface SearchItemProps {
   Url: string;
@@ -31,15 +29,12 @@ const SearchItem: React.FC<SearchItemProps> = ({
           <h5 className="text-base text-zinc-700 font-semibold">{label}</h5>
         </div>
       </div>
-      <Link
-        href={{
-          pathname: "/create-order",
-          query: { Url: imageUrl, label, CreatorId, Private },
-        }}
+      <a
+ href={`/create-order?&Url=${encodeURIComponent(Url)}&label=${encodeURIComponent(label)}&CreatorId=${encodeURIComponent(CreatorId)}&Private=${encodeURIComponent(Private)}`}
         className="px-8 py-2 h-fit bg-[#EC4899] rounded-full max-md:px-4 max-md:py-1 max-md:text-sm text-white font-semibold"
       >
         Select
-      </Link>
+      </a>
     </div>
   );
 };
